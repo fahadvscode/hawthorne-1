@@ -8,7 +8,11 @@ export default defineConfig({
   site: 'https://hawthorneeastvillagemilton.com',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/thank-you/'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
