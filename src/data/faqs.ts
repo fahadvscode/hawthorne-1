@@ -27,7 +27,7 @@ export const allFaqs: FAQ[] = [
   {
     question: 'Where exactly is Hawthorne East Village located?',
     answer:
-      'Hawthorne East Village is located in Milton, Ontario, in the Halton Region. The community is in the Louis St. Laurent Avenue / Fourth Line / Steeles Avenue East area, with references including 433 Steeles Ave E. It offers convenient access to Highways 401 and 407, Milton GO Station, and Milton District Hospital.',
+      'Hawthorne East Village is located in Milton, Ontario, in the Halton Region. The community is situated near the intersection of Fourth Line and Louis St. Laurent Avenue, with references including 433 Steeles Ave E. It offers incredibly convenient access to major transit routes: Highway 407 is approximately 7 minutes away, Highway 401 is 10 minutes away, and the Milton GO Station is an 8-minute drive. Essential amenities like the Milton District Hospital are just 6 minutes from the site.',
   },
   {
     question: 'Is Hawthorne East Village a good investment?',
@@ -42,7 +42,7 @@ export const allFaqs: FAQ[] = [
   {
     question: 'What schools are near Hawthorne East Village?',
     answer:
-      'Milton is served by the highly rated Halton District School Board and Halton Catholic District School Board, with multiple elementary and secondary options nearby. The planned Milton Education Village will bring Wilfrid Laurier University and Conestoga College programs to the area, strengthening long-term educational infrastructure.',
+      'Families at Hawthorne East Village have access to top-rated schools in the Halton District School Board and Halton Catholic District School Board. Nearby schools include Boyne Public School (approx. 3 minutes away), St. Francis Xavier Catholic Secondary School (approx. 4 minutes away), and Elsie MacGill Secondary School (approx. 5 minutes away). Additionally, the future Milton Education Village, featuring Wilfrid Laurier University and Conestoga College campuses, will be located just 5 minutes from the community, making it an excellent location for long-term educational needs.',
   },
   {
     question: 'How do I register for Hawthorne East Village VIP pricing?',
@@ -82,12 +82,12 @@ export const allFaqs: FAQ[] = [
   {
     question: 'What amenities are near Hawthorne East Village?',
     answer:
-      'Nearby amenities include Highway 401 and 407 access, Milton GO Station, Milton District Hospital, conservation areas such as Rattlesnake Point and Hilton Falls, outlet shopping, and planned retail. A planned elementary school within the broader community area will add convenience for growing families.',
+      'Nearby amenities are highly accessible. Commuters enjoy Highway 407 (~7 mins), Highway 401 (~10 mins), and the Milton GO Station (~8 mins). For healthcare, the Milton District Hospital is just 6 minutes away. Recreation options include the Milton Sports Centre (~7 mins), Springridge Farm (~10 mins), and world-class nature trails at Kelso and Rattlesnake Point Conservation Areas (~12 mins).',
   },
   {
     question: 'Are you the official builder for Hawthorne East Village?',
     answer:
-      'No. This website is not the official Mattamy Homes website. We provide independent buyer representation to help you evaluate Hawthorne East Village and other Milton pre-construction options, ensuring you get the best VIP access and terms.',
+      'No. This website is not the official Mattamy Homes website. We provide independent buyer representation to help you evaluate Hawthorne East Village and other Milton pre-construction options, ensuring you get the best VIP access and terms. Independent buyer representation — we do not represent Mattamy Homes.',
   },
   {
     question: 'What size are detached homes at Hawthorne East Village?',

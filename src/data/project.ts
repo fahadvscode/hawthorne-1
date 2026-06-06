@@ -93,17 +93,18 @@ export const PROJECT = {
   incentives:
     'Limited VIP incentives may be available for early registrants. Incentives change frequently and are subject to builder approval — register for current details.',
   amenities: [
-    'Highway 401 & 407 access',
-    'Milton GO Station',
-    'Milton District Hospital',
-    'Parks & conservation (Rattlesnake Point, Hilton Falls)',
-    'Planned elementary school',
-    'Outlet shopping & retail',
+    'Highway 401 (~10 mins) & Highway 407 (~7 mins)',
+    'Milton GO Station (~8 mins drive)',
+    'Milton District Hospital (~6 mins drive)',
+    'Milton Sports Centre (~7 mins drive)',
+    'Kelso & Rattlesnake Point Conservation Areas (~12 mins)',
+    'Springridge Farm & local markets (~10 mins)',
   ],
   schools: [
-    'Halton District School Board — highly rated elementary and secondary schools',
-    'Catholic District School Board options',
-    'Milton Education Village — Wilfrid Laurier University & Conestoga College joint campus (planned)',
+    'Boyne Public School (Public Elementary, ~3 mins)',
+    'St. Francis Xavier Catholic Secondary School (~4 mins)',
+    'Elsie MacGill Secondary School (Public Secondary, ~5 mins)',
+    'Planned Milton Education Village (Wilfrid Laurier & Conestoga, ~5 mins)',
   ],
 } as const;
 
@@ -123,7 +124,7 @@ export const DISCLAIMER = {
   marketed:
     'Marketed by authorized independent real estate professionals.',
   notOfficial:
-    'This is not the official website of the builder/developer. We do not represent Mattamy Homes. We provide independent VIP buyer representation.',
+    'Independent buyer representation — we do not represent Mattamy Homes.',
   preliminary:
     'All renderings, pricing, sizes, and incentives are preliminary, for illustration only, and subject to change without notice. E&OE.',
 } as const;
