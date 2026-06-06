@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { insertLead, isSupabaseConfigured } from '../lib/supabase/server';
+import { insertLead, isSupabaseConfigured } from '../lib/supabase/server.js';
 
 interface RegisterBody {
   firstName?: string;
