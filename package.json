@@ -11,17 +11,21 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "images": "node scripts/generate-images.mjs"
+    "images": "node scripts/generate-images.mjs",
+    "supabase:setup-table": "node scripts/setup-supabase-table.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/outfit": "^5.2.8",
+    "@supabase/supabase-js": "^2.107.0",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.4.4",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
+    "@vercel/node": "^5.3.0",
+    "postgres": "^3.4.9",
     "sharp": "^0.34.5"
   }
 }

@@ -47,12 +47,6 @@ export async function submitLead(
   data: Omit<LeadPayload, 'source' | 'page_path' | 'timestamp'>,
   formType: string,
 ): Promise<void> {
-  const webhook = import.meta.env.PUBLIC_N8N_WEBHOOK_URL;
-  if (!webhook) {
-    console.error('[LeadForm] PUBLIC_N8N_WEBHOOK_URL is not configured');
-    throw new Error('Webhook not configured. Please try again or call us directly.');
-  }
-
   const payload: LeadPayload = {
     ...data,
     ...getUtmParams(),
@@ -62,14 +56,21 @@ export async function submitLead(
     form_type: formType,
   };
 
-  const res = await fetch(webhook, {
+  const res = await fetch('/api/register', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
 
   if (!res.ok) {
-    console.error('[LeadForm] Webhook error', res.status, await res.text().catch(() => ''));
-    throw new Error('Submission failed. Please try again.');
+    let message = 'Submission failed. Please try again.';
+    try {
+      const body = await res.json();
+      if (body?.error) message = body.error;
+    } catch {
+      /* ignore */
+    }
+    console.error('[LeadForm] API error', res.status);
+    throw new Error(message);
   }
 }

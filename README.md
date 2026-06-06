@@ -16,7 +16,7 @@ Static lead-gen site for **Hawthorne East Village by Mattamy Homes** in Milton, 
 ```bash
 npm install
 cp .env.example .env
-# Set PUBLIC_N8N_WEBHOOK_URL in .env
+# Set SUPABASE_SERVICE_ROLE_KEY (same Supabase project as Enclave Site A)
 npm run dev
 ```
 
@@ -26,29 +26,40 @@ Open `http://localhost:4321`
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `PUBLIC_N8N_WEBHOOK_URL` | Yes (production) | n8n webhook URL for lead JSON POST |
+| `SUPABASE_URL` | Yes (production) | Supabase project URL (`https://cfzuypbljirmibmxpabi.supabase.co`) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes (production) | Server-only service role key — copy from Enclave Site A Vercel env |
+| `REGISTRATION_WEBHOOK_URL` | Optional | POST lead JSON to n8n / CRM after Supabase save |
+| `PUBLIC_N8N_WEBHOOK_URL` | Optional | Legacy alias for webhook URL |
 
 Example `.env`:
 
 ```
-PUBLIC_N8N_WEBHOOK_URL=https://your-n8n.example.com/webhook/xxxx
+SUPABASE_URL=https://cfzuypbljirmibmxpabi.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+REGISTRATION_WEBHOOK_URL=https://your-n8n.example.com/webhook/hawthorne-leads
 ```
 
-## Lead Flow (n8n → Follow Up Boss → Twilio)
+## Supabase table setup
 
-The front end **only** POSTs JSON to `PUBLIC_N8N_WEBHOOK_URL` on form submit.
+Leads are stored in **`public.hawthorne_east_village`** (separate from Enclave's `enclave` table).
 
-**Expected n8n workflow (configure in n8n, not in this repo):**
+**Option A — SQL Editor:** paste and run `supabase/RUN_IN_DASHBOARD.sql` in [Supabase SQL Editor](https://supabase.com/dashboard/project/cfzuypbljirmibmxpabi/sql/new).
 
-1. **Webhook** node receives POST with payload:
-   - `firstName`, `lastName`, `email`, `phone`
-   - `interest`, `budget`, `timeline` (when provided)
-   - `source`: `"hawthorneeastvillagemilton.com"`
-   - `page_path`, `form_type`, `timestamp`
-   - `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content` (when present)
-2. **Follow Up Boss** node creates/updates contact with tags (project name, home type, UTM).
-3. **Twilio** node sends auto-text to the lead within ~60 seconds confirming registration and that Fahad will follow up.
-4. Optional: email notification to Fahad.
+**Option B — CLI:**
+
+```bash
+# Add SUPABASE_DB_URL to .env (Database → Connection string URI)
+npm run supabase:setup-table
+```
+
+## Lead Flow
+
+Forms POST to `/api/register` (serverless on Vercel). The API:
+
+1. Validates and saves the lead to Supabase `hawthorne_east_village`
+2. Optionally forwards JSON to `REGISTRATION_WEBHOOK_URL` (n8n → Follow Up Boss → Twilio)
+
+Payload fields: `firstName`, `lastName`, `email`, `phone`, `interest`, `budget`, `timeline`, `source`, `page_path`, `form_type`, `timestamp`, UTM params.
 
 On success, the browser redirects to `/thank-you/` and fires `generate_lead` (when GA4 is enabled).
 
@@ -59,7 +70,9 @@ npm run build    # generates images + static dist/
 npm run preview  # serve dist/
 ```
 
-Deploy `dist/` to **Netlify**, **Vercel**, or **Cloudflare Pages**.
+Deploy `dist/` to **Vercel** (recommended). The `/api/register` serverless function deploys automatically alongside the static site.
+
+For local API testing: `npx vercel dev` (plain `npm run dev` serves pages only).
 
 ## Secondary Domain 301 Redirects
 
