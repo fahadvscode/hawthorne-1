@@ -12,28 +12,18 @@ const { h1, subtitle, showForm = true } = Astro.props;
 
 <section class="relative overflow-hidden bg-forest-dark text-cream">
   <picture class="pointer-events-none absolute inset-0" aria-hidden="true">
-    <source
-      type="image/avif"
-      srcset="/images/hero-640.avif 640w, /images/hero-1280.avif 1280w, /images/hero-1920.avif 1920w"
-      sizes="100vw"
-    />
-    <source
-      type="image/webp"
-      srcset="/images/hero-640.webp 640w, /images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w"
-      sizes="100vw"
-    />
     <img
-      src="/images/hero-1280.webp"
-      alt=""
+      src="/images/1780773913252_hero_community_picture.webp"
+      alt="Hawthorne East Village Milton new home community by Mattamy Homes pre-construction"
       width={1920}
       height={1080}
       loading="eager"
       fetchpriority="high"
       decoding="async"
-      class="h-full w-full object-cover opacity-35"
+      class="h-full w-full object-cover opacity-40"
     />
   </picture>
-  <div class="absolute inset-0 bg-gradient-to-b from-forest-dark/80 via-forest-dark/90 to-forest-dark" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-forest-dark/80 via-forest-dark/70 to-forest-dark" aria-hidden="true"></div>
 
   <div class="container-narrow relative z-10 grid gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:items-start lg:py-16">
     <div>
@@ -62,4 +52,4 @@ const { h1, subtitle, showForm = true } = Astro.props;
   </div>
 </section>
 
-<link rel="preload" as="image" href="/images/hero-1280.webp" type="image/webp" fetchpriority="high" />
+<link rel="preload" as="image" href="/images/1780773913252_hero_community_picture.webp" type="image/webp" fetchpriority="high" />

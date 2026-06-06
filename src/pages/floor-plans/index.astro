@@ -83,7 +83,7 @@ const gallery = [
           gallery.map((plan, i) => (
             <figure class="overflow-hidden rounded-lg border border-forest-mid/15">
               <img
-                src="/images/village-townhome.webp"
+                src={i < 2 ? "/images/1780773913253_townhomes.jpg" : i === 2 ? "/images/1780773913252_townhomes_3_storey.jpeg" : "/images/1780773913251_2_car_garage_detached.webp"}
                 alt={`Hawthorne East Village Milton ${plan.name} floor plan placeholder by Mattamy Homes`}
                 width={400}
                 height={260}
