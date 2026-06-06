@@ -1,0 +1,73 @@
+---
+interface Props {
+  label: string;
+  modalTitle: string;
+  formType?: string;
+}
+
+const { label, modalTitle, formType = 'gated-download' } = Astro.props;
+const modalId = `modal-${formType}`;
+---
+
+<button
+  type="button"
+  class="btn-gold"
+  data-open-modal={modalId}
+  aria-haspopup="dialog"
+>
+  {label}
+</button>
+
+<dialog
+  id={modalId}
+  class="fixed inset-0 z-[60] m-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-md overflow-y-auto rounded-lg border-0 bg-cream p-0 shadow-2xl backdrop:bg-forest-dark/70 open:flex open:flex-col"
+  aria-labelledby={`${modalId}-title`}
+>
+  <div class="border-b border-forest-mid/10 bg-forest-dark px-6 py-4 text-cream">
+    <div class="flex items-start justify-between gap-4">
+      <h2 id={`${modalId}-title`} class="font-display text-xl font-semibold text-gold">
+        {modalTitle}
+      </h2>
+      <button
+        type="button"
+        class="min-h-11 min-w-11 rounded text-cream hover:text-gold"
+        data-close-modal={modalId}
+        aria-label="Close dialog"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+  <div class="p-6">
+    <p class="mb-4 text-sm text-forest-mid">
+      Enter your details to receive VIP access. Fahad will follow up shortly with the latest package.
+    </p>
+    <slot />
+  </div>
+</dialog>
+
+<script>
+  function initModals() {
+    document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-open-modal');
+        const dialog = document.getElementById(id!) as HTMLDialogElement;
+        dialog?.showModal();
+      });
+    });
+    document.querySelectorAll('[data-close-modal]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-close-modal');
+        const dialog = document.getElementById(id!) as HTMLDialogElement;
+        dialog?.close();
+      });
+    });
+    document.querySelectorAll('dialog').forEach((dialog) => {
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+      });
+    });
+  }
+  initModals();
+  document.addEventListener('astro:page-load', initModals);
+</script>

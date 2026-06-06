@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTABand from '../../components/CTABand.astro';
+import { pages } from '../../data/seo';
+import { allFaqs } from '../../data/faqs';
+import { faqSchema } from '../../utils/schema';
+---
+
+<BaseLayout
+  title={pages.faq.title}
+  description={pages.faq.description}
+  path={pages.faq.path}
+  ogImage={pages.faq.ogImage}
+  schemas={[faqSchema(allFaqs)]}
+>
+  <section class="section-pad bg-forest-dark text-cream">
+    <div class="container-narrow">
+      <Breadcrumbs items={[{ name: 'FAQ', path: '/faq/' }]} />
+      <h1 class="font-display text-4xl font-bold text-gold sm:text-5xl">{pages.faq.h1}</h1>
+      <p class="mt-4 max-w-3xl text-lg text-cream/90">
+        Answers to the most common questions about Hawthorne East Village Milton — prices, deposits, schools, VIP
+        registration, and more.
+      </p>
+    </div>
+  </section>
+
+  <FAQSection faqs={allFaqs} heading="All Questions" id="full-faq" />
+  <CTABand />
+</BaseLayout>

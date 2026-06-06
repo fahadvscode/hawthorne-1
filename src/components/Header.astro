@@ -1,0 +1,60 @@
+---
+import { CONTACT } from '../data/project';
+
+const nav = [
+  { href: '/floor-plans/', label: 'Floor Plans' },
+  { href: '/prices/', label: 'Prices' },
+  { href: '/townhomes/', label: 'Townhomes' },
+  { href: '/detached/', label: 'Detached' },
+  { href: '/location/', label: 'Location' },
+  { href: '/faq/', label: 'FAQ' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-forest-mid/20 bg-forest-dark/95 text-cream backdrop-blur-sm"
+>
+  <div class="container-narrow flex items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href="/" class="group flex flex-col leading-tight" aria-label="Hawthorne East Village Milton — Home">
+      <span class="font-display text-lg font-semibold text-gold sm:text-xl">Hawthorne East Village</span>
+      <span class="text-xs font-medium uppercase tracking-wider text-cream/80">Sold by Fahad · Milton</span>
+    </a>
+
+    <nav class="hidden items-center gap-5 lg:flex" aria-label="Main navigation">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'text-sm font-medium transition-colors hover:text-gold',
+              currentPath.startsWith(item.href) ? 'text-gold' : 'text-cream/90',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a
+        href={`tel:${CONTACT.phoneTel}`}
+        class="hidden min-h-11 items-center gap-1 rounded-md px-3 text-sm font-semibold text-cream hover:text-gold sm:inline-flex"
+        aria-label={`Call ${CONTACT.phone}`}
+      >
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+          ></path>
+        </svg>
+        <span class="hidden md:inline">{CONTACT.phone}</span>
+      </a>
+      <a href="/register/" class="btn-gold text-xs sm:text-sm">Register</a>
+    </div>
+  </div>
+</header>

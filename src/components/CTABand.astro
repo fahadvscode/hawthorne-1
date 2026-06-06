@@ -1,0 +1,20 @@
+---
+import { CONTACT } from '../data/project';
+---
+
+<section class="section-pad bg-forest-dark text-cream">
+  <div class="container-narrow text-center">
+    <h2 class="font-display text-3xl font-semibold text-gold sm:text-4xl">
+      Register for Hawthorne East Village VIP Access
+    </h2>
+    <p class="mx-auto mt-4 max-w-2xl text-lg text-cream/90">
+      Priority pricing, floor plans, deposit schedules, and incentive details — before public launch.
+    </p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a href="/register/" class="btn-gold min-w-[200px]">VIP Registration</a>
+      <a href={`tel:${CONTACT.phoneTel}`} class="btn-outline min-w-[200px] border-cream text-cream hover:bg-cream hover:text-forest-dark">
+        Call {CONTACT.phone}
+      </a>
+    </div>
+  </div>
+</section>

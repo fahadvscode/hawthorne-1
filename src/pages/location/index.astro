@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { pages } from '../../data/seo';
+import { PROJECT } from '../../data/project';
+---
+
+<BaseLayout title={pages.location.title} description={pages.location.description} path={pages.location.path} ogImage={pages.location.ogImage}>
+  <section class="section-pad bg-forest-dark text-cream">
+    <div class="container-narrow">
+      <Breadcrumbs items={[{ name: 'Location', path: '/location/' }]} />
+      <h1 class="font-display text-4xl font-bold text-gold sm:text-5xl">{pages.location.h1}</h1>
+      <p class="mt-4 max-w-3xl text-lg text-cream/90">
+        Hawthorne East Village is located in Milton, Ontario at {PROJECT.address.street} ({PROJECT.address.area}),
+        with quick access to Highways 401 and 407, Milton GO, and top Halton schools.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow">
+      <h2 class="mb-4 text-2xl text-forest-dark">Map</h2>
+      <div class="aspect-video overflow-hidden rounded-lg border border-forest-mid/20 bg-forest-mid/10">
+        <iframe
+          title="Hawthorne East Village Milton location map"
+          src={`https://maps.google.com/maps?q=${PROJECT.geo.latitude},${PROJECT.geo.longitude}&z=14&output=embed`}
+          class="h-full w-full border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad bg-white">
+    <div class="container-narrow grid gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="mb-4 text-2xl text-forest-dark">Transit & Highways</h2>
+        <ul class="space-y-2 text-forest-mid">
+          <li>Highway 401 — GTA corridor access</li>
+          <li>Highway 407 — toll route across Halton</li>
+          <li>Milton GO Station — commuter rail to Toronto Union</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-4 text-2xl text-forest-dark">Healthcare & Recreation</h2>
+        <ul class="space-y-2 text-forest-mid">
+          <li>Milton District Hospital</li>
+          <li>Rattlesnake Point Conservation Area</li>
+          <li>Hilton Falls Conservation Area</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-4 text-2xl text-forest-dark">Schools</h2>
+        <ul class="space-y-2 text-forest-mid">
+          {PROJECT.schools.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 class="mb-4 text-2xl text-forest-dark">Growth & Investment</h2>
+        <p class="text-forest-mid leading-relaxed">
+          Milton is part of Halton Region's growth plan toward ~1.1 million residents. The Milton Education Village
+          brings Wilfrid Laurier University and Conestoga College to the area, anchoring the Toronto–Waterloo
+          innovation corridor. New pre-construction communities like Hawthorne East Village benefit from
+          infrastructure investment and commuter demand.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</BaseLayout>

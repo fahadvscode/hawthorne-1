@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest-dark: #1a2e1f;
+  --color-forest-mid: #2d4a34;
+  --color-forest-accent: #0c5c35;
+  --color-gold: #c9a84c;
+  --color-gold-alt: #d4a94c;
+  --color-cream: #f7f4ec;
+  --color-ink: #1a2e1f;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: Montserrat, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-body text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex min-h-11 min-w-[44px] items-center justify-center rounded-md bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-wide text-forest-dark transition-colors hover:bg-gold-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex min-h-11 min-w-[44px] items-center justify-center rounded-md border-2 border-gold px-6 py-3 text-sm font-semibold uppercase tracking-wide text-gold transition-colors hover:bg-gold hover:text-forest-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-gold;
+  }
+
+  .input-field {
+    @apply w-full rounded-md border border-forest-mid/30 bg-white px-4 py-3 text-base text-ink placeholder:text-forest-mid/60 focus:border-forest-accent focus:outline-none focus:ring-2 focus:ring-forest-accent/20;
+  }
+
+  .section-pad {
+    @apply px-4 py-16 sm:px-6 lg:px-8 lg:py-20;
+  }
+
+  .container-narrow {
+    @apply mx-auto max-w-6xl;
+  }
+
+  .prose-lead {
+    @apply text-lg leading-relaxed text-forest-mid;
+  }
+}
+
+/* FAQ accordion — native details, styled */
+details.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+details.faq-item[open] summary .faq-chevron {
+  transform: rotate(180deg);
+}

@@ -1,0 +1,65 @@
+---
+import LeadForm from './LeadForm.astro';
+
+interface Props {
+  h1: string;
+  subtitle: string;
+  showForm?: boolean;
+}
+
+const { h1, subtitle, showForm = true } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-forest-dark text-cream">
+  <picture class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <source
+      type="image/avif"
+      srcset="/images/hero-640.avif 640w, /images/hero-1280.avif 1280w, /images/hero-1920.avif 1920w"
+      sizes="100vw"
+    />
+    <source
+      type="image/webp"
+      srcset="/images/hero-640.webp 640w, /images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w"
+      sizes="100vw"
+    />
+    <img
+      src="/images/hero-1280.webp"
+      alt=""
+      width={1920}
+      height={1080}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="h-full w-full object-cover opacity-35"
+    />
+  </picture>
+  <div class="absolute inset-0 bg-gradient-to-b from-forest-dark/80 via-forest-dark/90 to-forest-dark" aria-hidden="true"></div>
+
+  <div class="container-narrow relative z-10 grid gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:items-start lg:py-16">
+    <div>
+      <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">Mattamy Homes · Milton Pre-Construction</p>
+      <h1 class="font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.25rem]">
+        {h1}
+      </h1>
+      <p class="mt-4 text-lg text-cream/90 sm:text-xl">{subtitle}</p>
+      {
+        !showForm && (
+          <a href="/register/" class="btn-gold mt-8 inline-flex">
+            Get VIP Pricing & Floor Plans
+          </a>
+        )
+      }
+    </div>
+
+    {
+      showForm && (
+        <div class="rounded-lg bg-white p-6 shadow-xl sm:p-8">
+          <p class="mb-4 text-center font-semibold text-forest-dark">VIP Registration</p>
+          <LeadForm id="hero-form" variant="hero" formType="hero" />
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<link rel="preload" as="image" href="/images/hero-1280.webp" type="image/webp" fetchpriority="high" />

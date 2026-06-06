@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { pages } from '../../data/seo';
+import { CONTACT } from '../../data/project';
+---
+
+<BaseLayout
+  title={pages.thankYou.title}
+  description={pages.thankYou.description}
+  path={pages.thankYou.path}
+  ogImage={pages.thankYou.ogImage}
+  noindex={true}
+>
+  <section class="section-pad">
+    <div class="container-narrow mx-auto max-w-2xl text-center">
+      <h1 class="font-display text-4xl font-bold text-forest-dark">{pages.thankYou.h1}</h1>
+      <p class="mt-4 text-lg text-forest-mid">
+        Your VIP registration for Hawthorne East Village Milton has been received. Fahad will text or call you
+        within the next few minutes with your package.
+      </p>
+
+      <div class="mt-10 rounded-lg border border-gold/40 bg-white p-8 text-left">
+        <h2 class="text-xl font-semibold text-forest-dark">Your VIP Package</h2>
+        <p class="mt-2 text-sm text-forest-mid">
+          Download links below are placeholders — Fahad will send the current price list and floor plans directly.
+        </p>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="/prices/" class="font-semibold text-forest-accent hover:underline">
+              Hawthorne East Village price overview →
+            </a>
+          </li>
+          <li>
+            <a href="/floor-plans/" class="font-semibold text-forest-accent hover:underline">
+              Floor plans & home sizes →
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="mt-10 text-xl font-semibold text-forest-dark">What Happens Next?</h2>
+      <ol class="mt-4 space-y-3 text-left text-forest-mid">
+        <li>1. Fahad reviews your registration and preferred home type.</li>
+        <li>2. You receive a call or text at the number you provided.</li>
+        <li>3. Current pricing, floor plans, and incentive details are shared for your phase.</li>
+      </ol>
+
+      <a href={`tel:${CONTACT.phoneTel}`} class="btn-gold mt-10 inline-flex">
+        Call Now — {CONTACT.phone}
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  /** Fire GA4 generate_lead conversion — uncomment when GA4 is configured */
+  function fireConversion() {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'Lead',
+        event_label: 'hawthorneeastvillagemilton.com',
+      });
+    }
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead');
+    }
+    console.info('[Conversion] generate_lead fired');
+  }
+
+  fireConversion();
+</script>
+
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+</script>
