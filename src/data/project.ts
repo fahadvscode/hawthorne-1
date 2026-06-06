@@ -2,8 +2,8 @@ export const SITE = {
   name: 'Hawthorne East Village Milton',
   domain: 'hawthorneeastvillagemilton.com',
   url: 'https://hawthorneeastvillagemilton.com',
-  brand: 'Sold by Fahad',
-  agent: 'Fahad Javed Real Estate',
+  brand: 'Hawthorne East Village VIP',
+  agent: 'VIP Sales Team',
 } as const;
 
 export const PROJECT = {
@@ -18,15 +18,15 @@ export const PROJECT = {
   status: 'Pre-construction (released in phases)',
   occupancy: 'TBD by phase — confirm with VIP registration',
   address: {
-    street: '433 Steeles Ave E',
-    area: 'Louis St. Laurent Ave / Fourth Line / Steeles Ave E area',
+    street: 'Fourth Line & Louis St. Laurent Ave',
+    area: 'Milton',
     city: 'Milton',
     province: 'ON',
     postalCode: 'L9T',
   },
   geo: {
-    latitude: 43.5183,
-    longitude: -79.8774,
+    latitude: 43.4939,
+    longitude: -79.8519,
   },
   sizes: { min: 1348, max: 2777, unit: 'sq ft' },
   priceRange: { low: 719990, high: 1376990, currency: 'CAD' },
@@ -108,22 +108,22 @@ export const PROJECT = {
 } as const;
 
 export const CONTACT = {
-  name: 'Fahad Javed',
-  title: 'Sales Representative',
-  brokerage: 'Century 21 Property Zone Realty Inc.',
-  address: '600 Matheson Blvd W, Unit 5, Mississauga, ON',
-  email: 'fahad@fahadsold.com',
-  phone: '647-898-1739',
-  phoneTel: '+16478981739',
-  web: 'https://fahadsold.com',
-  webLabel: 'fahadsold.com',
+  name: 'VIP Sales Team',
+  title: 'Authorized Platinum Access',
+  brokerage: 'Independent Real Estate Professionals',
+  address: 'Milton, ON',
+  email: 'info@hawthorneeastvillagemilton.com',
+  phone: 'Register for Access',
+  phoneTel: '#register',
+  web: 'https://hawthorneeastvillagemilton.com',
+  webLabel: 'hawthorneeastvillagemilton.com',
 } as const;
 
 export const DISCLAIMER = {
   marketed:
-    'Marketed by Fahad Javed, Sales Representative, Century 21 Property Zone Realty Inc.',
+    'Marketed by authorized independent real estate professionals.',
   notOfficial:
-    'This is not the official website of the builder/developer. We do not represent Mattamy Homes.',
+    'This is not the official website of the builder/developer. We do not represent Mattamy Homes. We provide independent VIP buyer representation.',
   preliminary:
     'All renderings, pricing, sizes, and incentives are preliminary, for illustration only, and subject to change without notice. E&OE.',
 } as const;

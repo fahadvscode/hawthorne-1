@@ -5,10 +5,9 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Fahad Javed Real Estate',
+    name: 'Hawthorne East Village VIP Sales',
     url: SITE.url,
-    logo: `${SITE.url}/images/logo.svg`,
-    sameAs: [CONTACT.web, 'https://www.century21.ca/'],
+    logo: `${SITE.url}/images/1780773913252_Hawthrone-East-Village-logo.webp`,
   };
 }
 
@@ -20,34 +19,6 @@ export function websiteSchema() {
     url: SITE.url,
     publisher: { '@id': `${SITE.url}/#organization` },
     inLanguage: 'en-CA',
-  };
-}
-
-export function agentSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'RealEstateAgent',
-    name: CONTACT.name,
-    jobTitle: CONTACT.title,
-    email: CONTACT.email,
-    telephone: CONTACT.phoneTel,
-    url: CONTACT.web,
-    worksFor: {
-      '@type': 'RealEstateOffice',
-      name: CONTACT.brokerage,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '600 Matheson Blvd W, Unit 5',
-        addressLocality: 'Mississauga',
-        addressRegion: 'ON',
-        addressCountry: 'CA',
-      },
-    },
-    areaServed: [
-      { '@type': 'City', name: 'Milton' },
-      { '@type': 'AdministrativeArea', name: 'Halton Region' },
-      { '@type': 'Place', name: 'Greater Toronto Area' },
-    ],
   };
 }
 

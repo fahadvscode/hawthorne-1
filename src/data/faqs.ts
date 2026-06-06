@@ -12,7 +12,7 @@ export const allFaqs: FAQ[] = [
   {
     question: 'Who is the builder of Hawthorne East Village?',
     answer:
-      'Mattamy Homes is the builder and developer of Hawthorne East Village. Mattamy has been building homes across North America since 1978 and is one of the largest privately owned homebuilders on the continent. This site is marketed independently by Fahad Javed and does not represent Mattamy Homes.',
+      'Mattamy Homes is the builder and developer of Hawthorne East Village. Mattamy has been building homes across North America since 1978 and is one of the largest privately owned homebuilders on the continent. This site is marketed independently to provide VIP buyer representation and does not represent Mattamy Homes.',
   },
   {
     question: 'How much do homes at Hawthorne East Village cost?',
@@ -47,7 +47,7 @@ export const allFaqs: FAQ[] = [
   {
     question: 'How do I register for Hawthorne East Village VIP pricing?',
     answer:
-      'Complete the VIP registration form on this website or call Fahad Javed at 647-898-1739. Registration is free and gives you priority access to current pricing, floor plans, deposit schedules, and incentive details before public release. You will receive a follow-up call or text shortly after registering.',
+      'Complete the VIP registration form on this website. Registration is free and gives you priority access to current pricing, floor plans, deposit schedules, and incentive details before public release. Our VIP team will follow up with you shortly after registering.',
   },
   {
     question: 'When is occupancy / move-in for Hawthorne East Village?',
@@ -85,9 +85,9 @@ export const allFaqs: FAQ[] = [
       'Nearby amenities include Highway 401 and 407 access, Milton GO Station, Milton District Hospital, conservation areas such as Rattlesnake Point and Hilton Falls, outlet shopping, and planned retail. A planned elementary school within the broader community area will add convenience for growing families.',
   },
   {
-    question: 'Does Fahad Javed represent Mattamy Homes?',
+    question: 'Are you the official builder for Hawthorne East Village?',
     answer:
-      'No. Fahad Javed is an independent Sales Representative with Century 21 Property Zone Realty Inc. This website is not the official Mattamy Homes website. Fahad does not represent the builder and provides independent buyer representation to help you evaluate Hawthorne East Village and other Milton pre-construction options.',
+      'No. This website is not the official Mattamy Homes website. We provide independent buyer representation to help you evaluate Hawthorne East Village and other Milton pre-construction options, ensuring you get the best VIP access and terms.',
   },
   {
     question: 'What size are detached homes at Hawthorne East Village?',
@@ -97,7 +97,7 @@ export const allFaqs: FAQ[] = [
   {
     question: 'Is there a price list for Hawthorne East Village floor plans?',
     answer:
-      'Yes. VIP registrants receive the current price list and floor plan package for available phases. Pricing and availability change as phases sell — register on this site or call 647-898-1739 to request the latest Hawthorne East Village price list and floor plans.',
+      'Yes. VIP registrants receive the current price list and floor plan package for available phases. Pricing and availability change as phases sell — register on this site to request the latest Hawthorne East Village price list and floor plans.',
   },
   {
     question: 'What makes Milton attractive for new home buyers?',

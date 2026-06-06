@@ -21,11 +21,11 @@ const footerNav = [
         <p class="mt-2 text-sm text-cream/80">
           Pre-construction by {PROJECT.builder} in {PROJECT.city}, {PROJECT.province}
         </p>
-        <p class="mt-4 text-sm font-semibold text-cream">Sold by Fahad · Fahad Javed Real Estate</p>
+        <p class="mt-4 text-sm font-semibold text-cream">Authorized VIP Platinum Access</p>
       </div>
 
       <div>
-        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-gold">Explore</p>
+        <p class="mb-3 text-sm font-bold uppercase tracking-wider text-gold">Explore</p>
         <ul class="grid grid-cols-2 gap-2 text-sm">
           {
             footerNav.map((link) => (
@@ -40,10 +40,10 @@ const footerNav = [
       </div>
 
       <div>
-        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-gold">Contact</p>
+        <p class="mb-3 text-sm font-bold uppercase tracking-wider text-gold">Contact</p>
         <address class="not-italic text-sm leading-relaxed text-cream/90">
           <p>
-            {CONTACT.name}, {CONTACT.title}
+            {CONTACT.name}
           </p>
           <p>{CONTACT.brokerage}</p>
           <p>{CONTACT.address}</p>
@@ -51,12 +51,6 @@ const footerNav = [
             Email:{' '}
             <a href={`mailto:${CONTACT.email}`} class="text-gold hover:underline">
               {CONTACT.email}
-            </a>
-          </p>
-          <p>
-            Phone:{' '}
-            <a href={`tel:${CONTACT.phoneTel}`} class="text-gold hover:underline">
-              {CONTACT.phone}
             </a>
           </p>
           <p>

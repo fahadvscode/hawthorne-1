@@ -1,6 +1,6 @@
 # Hawthorne East Village Milton — Lead Generation Site
 
-Static lead-gen site for **Hawthorne East Village by Mattamy Homes** in Milton, Ontario. Independently marketed by **Fahad Javed, Sales Representative** (Century 21 Property Zone Realty Inc.).
+Static lead-gen site for **Hawthorne East Village by Mattamy Homes** in Milton, Ontario. Independently marketed by authorized VIP real estate professionals.
 
 **Canonical domain:** [hawthorneeastvillagemilton.com](https://hawthorneeastvillagemilton.com)
 
@@ -116,4 +116,4 @@ Every page includes RECO/TRESA footer disclaimer. This is **not** the official b
 
 ## License
 
-Private — Fahad Javed / Century 21 Property Zone Realty Inc.
+Private — Hawthorne East Village VIP Sales

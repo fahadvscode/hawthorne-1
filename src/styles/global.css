@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest-dark: #1a2e1f;
-  --color-forest-mid: #2d4a34;
-  --color-forest-accent: #0c5c35;
-  --color-gold: #c9a84c;
-  --color-gold-alt: #d4a94c;
-  --color-cream: #f7f4ec;
-  --color-ink: #1a2e1f;
-  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-body: Montserrat, system-ui, sans-serif;
+  --color-forest-dark: #1F2937; /* Slate 800 */
+  --color-forest-mid: #4B5563; /* Slate 600 */
+  --color-forest-accent: #1A5336; /* Logo Green */
+  --color-gold: #F59E0B; /* Amber 500 - High converting CTA */
+  --color-gold-alt: #D97706; /* Amber 600 */
+  --color-cream: #F9FAFB; /* Gray 50 */
+  --color-ink: #111827; /* Slate 900 */
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
 }
 
 @layer base {
@@ -31,11 +31,11 @@
 
 @layer components {
   .btn-gold {
-    @apply inline-flex min-h-11 min-w-[44px] items-center justify-center rounded-md bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-wide text-forest-dark transition-colors hover:bg-gold-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+    @apply inline-flex min-h-11 min-w-[44px] items-center justify-center rounded-md bg-gold px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-gold-alt hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
   }
 
   .btn-outline {
-    @apply inline-flex min-h-11 min-w-[44px] items-center justify-center rounded-md border-2 border-gold px-6 py-3 text-sm font-semibold uppercase tracking-wide text-gold transition-colors hover:bg-gold hover:text-forest-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-gold;
+    @apply inline-flex min-h-11 min-w-[44px] items-center justify-center rounded-md border-2 border-gold px-6 py-3 text-sm font-bold uppercase tracking-wide text-gold transition-all hover:bg-gold hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold;
   }
 
   .input-field {
