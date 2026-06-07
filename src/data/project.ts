@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Hawthorne East Village Milton',
   domain: 'hawthorneeastvillagemilton.com',
-  url: 'https://hawthorneeastvillagemilton.com',
+  url: 'https://www.hawthorneeastvillagemilton.com',
   brand: 'Hawthorne East Village VIP',
   agent: 'VIP Sales Team',
 } as const;

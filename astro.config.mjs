@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://hawthorneeastvillagemilton.com',
+  site: 'https://www.hawthorneeastvillagemilton.com',
   output: 'static',
   trailingSlash: 'always',
   integrations: [
