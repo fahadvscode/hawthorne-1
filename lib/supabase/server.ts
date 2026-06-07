@@ -51,10 +51,35 @@ export async function insertLead(
 
   const { data, error } = await supabase.from(LEADS_TABLE).insert(row).select('id').single();
 
-  if (error) {
-    console.error('[supabase] insert lead failed:', error.message);
-    return { ok: false, error: error.message };
+  if (!error) {
+    return { ok: true, id: data.id };
   }
 
-  return { ok: true, id: data.id };
+  // Legacy table still has interest/budget/timeline instead of is_broker
+  const legacyRow = {
+    first_name: row.first_name,
+    last_name: row.last_name,
+    email: row.email,
+    phone: row.phone,
+    interest: row.is_broker ? `Broker: ${row.is_broker}` : '',
+    budget: '',
+    timeline: '',
+    source: row.source,
+    page_path: row.page_path,
+    form_type: row.form_type,
+    utm_source: row.utm_source,
+    utm_medium: row.utm_medium,
+    utm_campaign: row.utm_campaign,
+    utm_term: row.utm_term,
+    utm_content: row.utm_content,
+  };
+
+  const legacy = await supabase.from(LEADS_TABLE).insert(legacyRow).select('id').single();
+
+  if (legacy.error) {
+    console.error('[supabase] insert lead failed:', error.message, legacy.error.message);
+    return { ok: false, error: legacy.error.message };
+  }
+
+  return { ok: true, id: legacy.data.id };
 }
