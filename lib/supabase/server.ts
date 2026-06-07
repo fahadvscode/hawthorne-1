@@ -8,9 +8,7 @@ export type LeadInsert = {
   last_name: string;
   email: string;
   phone: string;
-  interest: string;
-  budget: string;
-  timeline: string;
+  is_broker: string;
   source: string;
   page_path: string;
   form_type: string;

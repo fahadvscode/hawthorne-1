@@ -54,7 +54,14 @@ const sql = readFileSync(join(root, 'supabase/RUN_IN_DASHBOARD.sql'), 'utf8');
 async function tableExists(supabase) {
   const { error } = await supabase.from('hawthorne_east_village').select('id').limit(1);
   if (!error) return true;
-  if (error.code === '42P01' || error.message.includes('does not exist')) return false;
+  if (
+    error.code === '42P01' ||
+    error.code === 'PGRST205' ||
+    error.message.includes('does not exist') ||
+    error.message.includes('schema cache')
+  ) {
+    return false;
+  }
   throw new Error(error.message);
 }
 

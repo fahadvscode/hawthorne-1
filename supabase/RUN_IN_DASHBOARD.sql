@@ -7,9 +7,7 @@ create table if not exists public.hawthorne_east_village (
   last_name text not null,
   email text not null,
   phone text not null,
-  interest text not null default '',
-  budget text not null default '',
-  timeline text not null default '',
+  is_broker text not null default '',
   source text not null default 'hawthorneeastvillagemilton.com',
   page_path text not null default '/',
   form_type text not null default 'hero',
@@ -28,5 +26,8 @@ create index if not exists hawthorne_east_village_created_at_idx on public.hawth
 
 alter table public.hawthorne_east_village enable row level security;
 
--- No public policies: inserts go through the API using the service role key only.
--- Refresh Table Editor — you should see: public.hawthorne_east_village
+-- If the table already exists with the old columns, run this instead:
+-- alter table public.hawthorne_east_village add column if not exists is_broker text not null default '';
+-- alter table public.hawthorne_east_village drop column if exists interest;
+-- alter table public.hawthorne_east_village drop column if exists budget;
+-- alter table public.hawthorne_east_village drop column if exists timeline;

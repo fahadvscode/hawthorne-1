@@ -2,9 +2,6 @@
 interface Props {
   id?: string;
   variant?: 'hero' | 'modal' | 'register' | 'inline';
-  showInterest?: boolean;
-  showBudget?: boolean;
-  showTimeline?: boolean;
   formType?: string;
   ctaLabel?: string;
 }
@@ -12,9 +9,6 @@ interface Props {
 const {
   id = 'lead-form',
   variant = 'hero',
-  showInterest = true,
-  showBudget = false,
-  showTimeline = false,
   formType = 'hero',
   ctaLabel = 'Get VIP Pricing & Floor Plans',
 } = Astro.props;
@@ -100,74 +94,22 @@ const formClass =
     <p id={`${id}-phone-error`} class="mt-1 hidden text-sm text-red-700" role="alert"></p>
   </div>
 
-  {
-    showInterest && (
-      <div>
-        <label for={`${id}-interest`} class="mb-1 block text-sm font-medium text-forest-dark">
-          I'm interested in (optional)
-        </label>
-        <select id={`${id}-interest`} name="interest" class="input-field">
-          <option value="">Select home type</option>
-          <option value="Townhome">Townhome</option>
-          <option value="Detached">Detached</option>
-          <option value="Investment">Investment</option>
-          <option value="Not sure">Not sure yet</option>
-        </select>
-      </div>
-    )
-  }
-
-  {
-    showBudget && (
-      <fieldset>
-        <legend class="mb-2 text-sm font-medium text-forest-dark">Budget range (optional)</legend>
-        <div class="space-y-2 text-sm">
-          <label class="flex items-center gap-2">
-            <input type="radio" name="budget" value="Under $800K" class="h-4 w-4" />
-            Under $800K
-          </label>
-          <label class="flex items-center gap-2">
-            <input type="radio" name="budget" value="$800K – $1.1M" class="h-4 w-4" />
-            $800K – $1.1M
-          </label>
-          <label class="flex items-center gap-2">
-            <input type="radio" name="budget" value="$1.1M – $1.4M" class="h-4 w-4" />
-            $1.1M – $1.4M
-          </label>
-          <label class="flex items-center gap-2">
-            <input type="radio" name="budget" value="Over $1.4M" class="h-4 w-4" />
-            Over $1.4M
-          </label>
-        </div>
-      </fieldset>
-    )
-  }
-
-  {
-    showTimeline && (
-      <fieldset>
-        <legend class="mb-2 text-sm font-medium text-forest-dark">Buying timeline (optional)</legend>
-        <div class="space-y-2 text-sm">
-          <label class="flex items-center gap-2">
-            <input type="radio" name="timeline" value="0–3 months" class="h-4 w-4" />
-            0–3 months
-          </label>
-          <label class="flex items-center gap-2">
-            <input type="radio" name="timeline" value="3–6 months" class="h-4 w-4" />
-            3–6 months
-          </label>
-          <label class="flex items-center gap-2">
-            <input type="radio" name="timeline" value="6–12 months" class="h-4 w-4" />
-            6–12 months
-          </label>
-          <label class="flex items-center gap-2">
-            <input type="radio" name="timeline" value="12+ months" class="h-4 w-4" />
-            12+ months
-          </label>
-        </div>
-      </fieldset>
-    )
-  }
+  <fieldset aria-describedby={`${id}-broker-error`}>
+    <legend class="mb-2 text-sm font-medium text-forest-dark">
+      Are you a broker? <span class="text-forest-accent">*</span>
+    </legend>
+    <div class="flex gap-6 text-sm">
+      <label class="flex items-center gap-2">
+        <input type="radio" name="isBroker" value="Yes" required class="h-4 w-4" />
+        Yes
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="radio" name="isBroker" value="No" required class="h-4 w-4" />
+        No
+      </label>
+    </div>
+    <p id={`${id}-broker-error`} class="mt-1 hidden text-sm text-red-700" role="alert"></p>
+  </fieldset>
 
   <p
     id={`${id}-form-error`}
@@ -236,9 +178,7 @@ const formClass =
       const lastName = (fd.get('lastName') as string)?.trim();
       const email = (fd.get('email') as string)?.trim();
       const phone = (fd.get('phone') as string)?.trim();
-      const interest = (fd.get('interest') as string) || undefined;
-      const budget = (fd.get('budget') as string) || undefined;
-      const timeline = (fd.get('timeline') as string) || undefined;
+      const isBroker = (fd.get('isBroker') as string) || undefined;
 
       let valid = true;
       if (!firstName) {
@@ -257,6 +197,14 @@ const formClass =
         showFieldError('phone', 'Enter a valid 10-digit phone number.');
         valid = false;
       }
+      if (!isBroker) {
+        const errEl = document.getElementById(`${form.id}-broker-error`);
+        if (errEl) {
+          errEl.textContent = 'Please select Yes or No.';
+          errEl.classList.remove('hidden');
+        }
+        valid = false;
+      }
       if (!valid) return;
 
       submitBtn.disabled = true;
@@ -270,9 +218,7 @@ const formClass =
             lastName,
             email,
             phone: normalizePhone(phone),
-            interest,
-            budget,
-            timeline,
+            isBroker,
           },
           formType,
         );

@@ -3,9 +3,7 @@ export interface LeadPayload {
   lastName: string;
   email: string;
   phone: string;
-  interest?: string;
-  budget?: string;
-  timeline?: string;
+  isBroker?: string;
   source: string;
   page_path: string;
   utm_source?: string;

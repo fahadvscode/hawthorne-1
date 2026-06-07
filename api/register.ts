@@ -6,9 +6,7 @@ interface RegisterBody {
   lastName?: string;
   email?: string;
   phone?: string;
-  interest?: string;
-  budget?: string;
-  timeline?: string;
+  isBroker?: string;
   source?: string;
   page_path?: string;
   form_type?: string;
@@ -36,9 +34,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     lastName,
     email,
     phone,
-    interest,
-    budget,
-    timeline,
+    isBroker,
     source,
     page_path,
     form_type,
@@ -63,9 +59,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     lastName: lastName.trim(),
     email: email.trim().toLowerCase(),
     phone: phone.trim(),
-    interest: interest?.trim() ?? '',
-    budget: budget?.trim() ?? '',
-    timeline: timeline?.trim() ?? '',
+    isBroker: isBroker?.trim() ?? '',
     source: source?.trim() || 'hawthorneeastvillagemilton.com',
     page_path: page_path?.trim() || '/',
     form_type: form_type?.trim() || 'hero',
@@ -83,9 +77,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       last_name: lead.lastName,
       email: lead.email,
       phone: lead.phone,
-      interest: lead.interest,
-      budget: lead.budget,
-      timeline: lead.timeline,
+      is_broker: lead.isBroker,
       source: lead.source,
       page_path: lead.page_path,
       form_type: lead.form_type,
