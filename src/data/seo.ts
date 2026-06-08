@@ -4,6 +4,7 @@ export interface PageSEO {
   path: string;
   h1: string;
   ogImage?: string;
+  keywords?: string[];
 }
 
 const CTA = 'Register for VIP pricing & floor plans.';
@@ -17,6 +18,7 @@ export const pages: Record<string, PageSEO> = {
     path: '/',
     h1: 'Hawthorne East Village Milton — Mattamy Homes Pre-Construction',
     ogImage: '/images/og-home.jpg',
+    keywords: ['Hawthorne East Village VIP', 'Mattamy Homes pre-construction Milton', 'Milton townhomes', 'Milton detached homes'],
   },
   floorPlans: {
     title: 'Hawthorne East Village Floor Plans | Milton Mattamy',
@@ -35,6 +37,7 @@ export const pages: Record<string, PageSEO> = {
     path: '/prices/',
     h1: 'Hawthorne East Village Prices & Deposit Structure',
     ogImage: '/images/og-prices.jpg',
+    keywords: ['Hawthorne East Village prices', 'Milton home prices 2026', 'pre-construction deposit Milton'],
   },
   townhomes: {
     title: 'Hawthorne East Village Townhomes | Milton Freehold',
@@ -62,6 +65,7 @@ export const pages: Record<string, PageSEO> = {
     path: '/location/',
     h1: 'Hawthorne East Village Location & Milton Lifestyle',
     ogImage: '/images/og-location.jpg',
+    keywords: ['Hawthorne East Village location', 'Milton GO station homes', 'Fourth Line Milton', 'Milton Education Village'],
   },
   faq: {
     title: 'Hawthorne East Village FAQ | Milton Mattamy Homes',
@@ -71,6 +75,7 @@ export const pages: Record<string, PageSEO> = {
     path: '/faq/',
     h1: 'Hawthorne East Village FAQ',
     ogImage: '/images/og-faq.jpg',
+    keywords: ['Hawthorne East Village FAQ', 'Mattamy Homes Milton questions', 'Milton new home FAQ'],
   },
   register: {
     title: 'Hawthorne East Village VIP Registration | Milton',

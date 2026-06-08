@@ -6,10 +6,10 @@ Static lead-gen site for **Hawthorne East Village by Mattamy Homes** in Milton, 
 
 ## Tech Stack
 
-- [Astro](https://astro.build) (static output)
+- [Next.js 15](https://nextjs.org) (App Router)
 - Tailwind CSS v4
-- Minimal client JS (forms, modals, exit-intent)
-- Self-hosted fonts via Fontsource (Cormorant Garamond + Montserrat)
+- React client components (forms, modals, exit-intent)
+- Self-hosted fonts via Fontsource (Outfit + Inter)
 
 ## Quick Start
 
@@ -20,7 +20,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Open `http://localhost:4321`
+Open `http://localhost:3000`
 
 ## Environment Variables
 
@@ -66,13 +66,13 @@ On success, the browser redirects to `/thank-you/` and fires `generate_lead` (wh
 ## Build & Deploy
 
 ```bash
-npm run build    # generates images + static dist/
-npm run preview  # serve dist/
+npm run build    # generates images, favicons, sitemap + Next.js build
+npm start        # serve production build
 ```
 
-Deploy `dist/` to **Vercel** (recommended). The `/api/register` serverless function deploys automatically alongside the static site.
+Deploy to **Vercel** (recommended). Next.js handles static pages and `/api/register` automatically.
 
-For local API testing: `npx vercel dev` (plain `npm run dev` serves pages only).
+`npm run dev` serves both pages and the API route locally.
 
 ## Secondary Domain 301 Redirects
 
@@ -111,7 +111,7 @@ Create Page Rules or Redirect Rules: `*hawthorneeastvillage.com/*` → `https://
 
 ## Analytics Placeholders
 
-Edit `src/components/AnalyticsPlaceholder.astro`:
+Add GA4, GTM, or Meta Pixel scripts to `app/layout.tsx`:
 
 - Google Analytics 4 (`G-XXXXXXXXXX`)
 - Google Tag Manager

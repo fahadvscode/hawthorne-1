@@ -2,9 +2,9 @@ import { readdir, stat, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const SITE = 'https://www.hawthorneeastvillagemilton.com';
-const PAGES_DIR = 'src/pages';
+const PAGES_DIR = 'app';
 const OUTPUT = 'public/sitemap.xml';
-const EXCLUDED = new Set(['thank-you']);
+const EXCLUDED = new Set(['api', 'thank-you']);
 
 async function findRoutes(dir, base = '') {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -19,7 +19,7 @@ async function findRoutes(dir, base = '') {
       continue;
     }
 
-    if (entry.name === 'index.astro') {
+    if (entry.name === 'page.tsx') {
       routes.push({
         loc: base === '' ? `${SITE}/` : `${SITE}${base}/`,
         file: path,
